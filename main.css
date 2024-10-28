@@ -1,3 +1,8 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  color: black;
+}
+
 .top {
   padding-bottom: 20px;
   overflow: hidden;
@@ -6,10 +11,10 @@
 }
 
 nav {
-  right: 0;
-  padding-left: 20px;
   position: fixed;
   top: 0;
+  right: 0;
+  padding-left: 20px;
 }
 nav ul {
   display: flex;
@@ -27,7 +32,6 @@ nav ul li a {
   color: red;
   margin: 20% 0 5% 24%;
   font-size: 23px;
-  font-family: "Josefin Sans", sans-serif;
 }
 .title h4 {
   font-size: 18px;
@@ -50,12 +54,22 @@ section {
   margin-top: 20%;
   font-size: 25px;
 }
-.about p {
-  color: white;
-  margin-left: 25%;
+.about .about-content {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically center items */
+}
+.about .about-text {
+  margin-left: 5%;
   width: 500px;
   font-size: 18px;
   margin-bottom: 20px;
+  max-width: 60%; /* Limit width of text */
+  color: white;
+}
+.about .about-image {
+  width: 150px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 20px; /* Reduced space between text and image */
 }
 
 .skillList {
@@ -67,15 +81,13 @@ section {
   list-style: none;
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally (optional) */
+  flex-direction: column;
+  align-items: center;
 }
-.skillList img {
+.skillList li img {
   width: 50px;
   height: 50px;
   margin-bottom: 5px;
-  margin-left: 0;
-  color: black;
 }
 
 h2 {
@@ -97,27 +109,23 @@ h2 {
 }
 .work ul {
   margin-top: 40px;
-  margin-left: 20%;
+  margin-left: 10%;
   list-style: none;
 }
 .work h3 {
-  margin-bottom: 0; /* Removes bottom margin from h3 */
+  margin-bottom: 0;
 }
 .work p {
   margin-top: 0;
   margin-left: 3px;
   font-size: 15px;
-  width: 60%;
-  font-style: italic; /* Removes top margin from p */
+  font-style: italic;
 }
 
 .projects {
-  padding: 2 40px;
-  height: -moz-fit-content;
+  margin-top: 100px;
+  padding: 40px;
   height: fit-content;
-  width: -moz-fit-content;
-  margin-top: 200px;
-
   width: fit-content;
 }
 
@@ -128,15 +136,14 @@ h2 {
   position: relative;
   width: 600px;
   height: 400px;
-  margin-left: 250px;
+  margin-left: 150px;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 .ecommerce-site img {
   width: 95%;
   height: 100%;
   padding: 2px;
-  margin-left: 0;
-  -o-object-fit: cover;
   object-fit: cover;
   border: 1px solid black;
   border-radius: 10px;
@@ -148,42 +155,30 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(128, 128, 128, 0.9);
   z-index: 1;
   margin-left: 15px;
   width: 95%;
 }
-.ecommerce-site h2 {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  z-index: 2;
-  margin: 0;
-  opacity: 0;
-  transition: opacity 0.3s;
-  text-decoration: none;
-}
-.ecommerce-site:hover h2 {
-  opacity: 1;
-}
+.ecommerce-site h2,
 .ecommerce-site p {
   position: absolute;
-  top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   color: white;
   margin: 0;
   opacity: 0;
   transition: opacity 0.3s;
-  z-index: 2;
-  text-align: center;
-
-  width: 300px;
 }
-.ecommerce-site:hover p {
+.ecommerce-site h2:hover,
+.ecommerce-site p:hover {
   opacity: 1;
+}
+.ecommerce-site h2 {
+  top: 10%;
+}
+.ecommerce-site p {
+  top: 30%;
+  width: 300px;
 }
 .ecommerce-site .button-container {
   position: absolute;
@@ -201,35 +196,11 @@ h2 {
   padding: 10px 20px;
   cursor: pointer;
   margin: 0 5px;
-  padding-bottom: 5px;
   opacity: 0;
   transition: opacity 0.3s;
 }
-.ecommerce-site:hover .button-container button {
+.ecommerce-site .button-container button:hover {
   opacity: 1;
-}
-
-p {
-  color: black;
-  margin-left: 5%;
-  display: flex;
-  align-items: center;
-  width: 60%;
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 400;
-  font-family: "Josefin Sans", sans-serif;
-  padding: 5px;
-}
-.builtWith {
-  margin-bottom: 40px;
-}
-img {
-  width: 200px;
-  height: 200px;
-  margin-left: 80px;
-  -o-object-fit: cover;
-  object-fit: cover;
 }
 
 .contact-form {
@@ -241,7 +212,6 @@ img {
 .contact-form .contact {
   color: white;
   padding-top: 5px;
-  text-decoration: none;
   text-align: center;
   margin: 0;
 }
@@ -256,23 +226,21 @@ img {
 
 .hover-text {
   font-size: 15px;
-  margin-bottom: 2px;
-  margin-top: 2px;
+  margin: 2px 0;
 }
 
 .email {
   color: white;
   margin-left: 600px;
-  width: -moz-fit-content;
   width: fit-content;
-  overflow: hidden;
 }
 
 .contact-links {
   display: flex;
   flex-direction: column;
   transform: translateY(-80px);
-} /*# sourceMappingURL=main.css.map */
+}
+
 @media only screen and (max-width: 450px) {
   section {
     margin-left: 2px !important;
@@ -281,7 +249,6 @@ img {
   ul {
     margin-left: 2px !important;
   }
-
   .work {
     height: fit-content;
   }
@@ -291,7 +258,6 @@ img {
   .projects {
     margin-top: 200px;
   }
-
   .ecommerce-site {
     margin-left: 2px !important;
     width: 90% !important;
@@ -301,3 +267,5 @@ img {
     font-size: 15px;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
