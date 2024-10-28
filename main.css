@@ -116,6 +116,8 @@ h2 {
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
+  margin-top: 200px;
+
   width: fit-content;
 }
 
@@ -126,7 +128,7 @@ h2 {
   position: relative;
   width: 600px;
   height: 400px;
-  margin-left: 300px;
+  margin-left: 250px;
   margin-bottom: 30px;
 }
 .ecommerce-site img {
@@ -135,7 +137,7 @@ h2 {
   padding: 2px;
   margin-left: 0;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -177,6 +179,7 @@ h2 {
   transition: opacity 0.3s;
   z-index: 2;
   text-align: center;
+
   width: 300px;
 }
 .ecommerce-site:hover p {
@@ -216,14 +219,17 @@ p {
   line-height: 26px;
   font-weight: 400;
   font-family: "Josefin Sans", sans-serif;
+  padding: 5px;
 }
-
+.builtWith {
+  margin-bottom: 40px;
+}
 img {
   width: 200px;
   height: 200px;
   margin-left: 80px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .contact-form {
@@ -232,10 +238,12 @@ img {
   color: white;
   margin-left: 0;
 }
-.contact-form h2 {
+.contact-form .contact {
   color: white;
   padding-top: 5px;
   text-decoration: none;
+  text-align: center;
+  margin: 0;
 }
 .contact-form a {
   color: white;
@@ -264,4 +272,32 @@ img {
   display: flex;
   flex-direction: column;
   transform: translateY(-80px);
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
+@media only screen and (max-width: 450px) {
+  section {
+    margin-left: 2px !important;
+    overflow: hidden;
+  }
+  ul {
+    margin-left: 2px !important;
+  }
+
+  .work {
+    height: fit-content;
+  }
+  .work p {
+    font-size: 15px !important;
+  }
+  .projects {
+    margin-top: 200px;
+  }
+
+  .ecommerce-site {
+    margin-left: 2px !important;
+    width: 90% !important;
+  }
+  .email {
+    margin-left: 130px !important;
+    font-size: 15px;
+  }
+}
