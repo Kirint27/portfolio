@@ -50,26 +50,33 @@ section {
 }
 
 .about {
+  display: flex; /* Enable Flexbox layout */
+  flex-direction: column; /* Stack elements vertically by default */
+  align-items: flex-start; /* Align the content to the top */
   color: white;
-  margin-top: 20%;
-  font-size: 25px;
+  margin-top: 20%; /* Adjust this to control spacing at the top of the section */
 }
-.about .about-content {
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Vertically center items */
+.about h2 {
+  font-size: 25px; /* Font size for the heading */
+  margin: 0; /* Remove default margin from the heading */
+  padding-bottom: 10px; /* Optional: Add a little space below the heading */
 }
-.about .about-text {
-  margin-left: 5%;
-  width: 500px;
+.about .text {
+  display: flex; /* Enable flex on text section */
+  flex-direction: row; /* Arrange text and image horizontally */
+  align-items: center; /* Vertically center the text and image */
+  gap: 20px; /* Space between the text and the image */
+  width: 80%; /* Make the text section take up full width */
   font-size: 18px;
-  margin-bottom: 20px;
-  max-width: 60%; /* Limit width of text */
-  color: white;
+  overflow: hidden;
+  margin-top: 0;
 }
-.about .about-image {
-  width: 150px; /* Adjust size as needed */
-  height: auto; /* Maintain aspect ratio */
-  margin-left: 20px; /* Reduced space between text and image */
+.about .profilePic {
+  width: 250px; /* Adjust size as needed */
+  height: 250px; /* Maintain consistent height */
+  border-radius: 50%; /* Make the image circular */
+  -o-object-fit: cover;
+     object-fit: cover; /* Ensure the image covers the area properly */
 }
 
 .skillList {
@@ -99,7 +106,7 @@ h2 {
 }
 
 .work {
-  height: 600px;
+  height: 400px;
   align-items: flex-start;
   padding: 20px;
   color: black;
@@ -109,7 +116,6 @@ h2 {
 }
 .work ul {
   margin-top: 40px;
-  margin-left: 10%;
   list-style: none;
 }
 .work h3 {
@@ -123,11 +129,14 @@ h2 {
 }
 
 .projects {
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 40px;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
+
 .ecommerce-site {
   display: flex;
   justify-content: center;
@@ -135,21 +144,20 @@ h2 {
   position: relative;
   width: 600px;
   height: 400px;
-  margin-left: 150px;
+  margin-left: 10%;
   margin-top: 10px;
   margin-bottom: 30px;
-  overflow: hidden; /* Prevents content from overflowing the container */
+  overflow: hidden;
 }
-
 .ecommerce-site img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border: 1px solid black;
   border-radius: 10px;
-  transition: opacity 0.3s ease; /* Smooth transition for image */
+  transition: opacity 0.3s ease;
 }
-
 .ecommerce-site::after {
   content: "";
   position: absolute;
@@ -157,18 +165,22 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(128, 128, 128, 0.8); /* Grey background */
-  z-index: 1; /* Overlay is behind the text and buttons */
+  background-color: rgba(128, 128, 128, 0.8);
+  z-index: 1;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-
-/* When hovering over .ecommerce-site, show the grey background */
 .ecommerce-site:hover::after {
-  opacity: 1; /* Show the grey overlay */
+  opacity: 1;
 }
-
-/* Initially, hide the text and buttons */
+.ecommerce-site:hover h2,
+.ecommerce-site:hover p,
+.ecommerce-site:hover .button-container {
+  opacity: 1;
+}
+.ecommerce-site:hover .button-container button {
+  opacity: 1;
+}
 .ecommerce-site h2,
 .ecommerce-site p,
 .ecommerce-site .button-container {
@@ -176,34 +188,27 @@ h2 {
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
-  z-index: 2; /* Ensure they stay above the overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2;
 }
-
-/* When hovering over .ecommerce-site, show the text and buttons */
-.ecommerce-site:hover h2,
-.ecommerce-site:hover p,
-.ecommerce-site:hover .button-container {
-  opacity: 1; /* Show text and buttons */
-}
-
 .ecommerce-site h2 {
   top: 10%;
 }
-
 .ecommerce-site p {
   top: 30%;
   width: 300px;
 }
-
+.ecommerce-site button:focus,
+.ecommerce-site a:focus {
+  outline: 3px solid #ff9900; /* Example: Orange outline for visibility */
+}
 .ecommerce-site .button-container {
   top: 55%;
   display: flex;
   justify-content: center;
-  gap: 10px; /* Space between the buttons */
+  gap: 10px;
 }
-
 .ecommerce-site .button-container button {
   color: white;
   background-color: red;
@@ -211,49 +216,22 @@ h2 {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-
-/* When hovering over .ecommerce-site, show the buttons */
-.ecommerce-site:hover .button-container button {
-  opacity: 1; /* Show the buttons */
-}
-
 .ecommerce-site .button-container button:hover {
-  background-color: darkred; /* Change button color on hover */
+  background-color: darkred;
 }
-
 
 .contact-form {
-  height: 150px;
   background-color: black;
-  color: white;
   margin-left: 0;
-}
-.contact-form .contact {
-  color: white;
-  padding-top: 5px;
-  text-align: center;
-  margin: 0;
-}
-.contact-form a {
-  color: white;
-  text-decoration: none;
-}
-.contact-form li {
-  list-style-type: none;
-  padding-bottom: 20px;
-}
-
-.hover-text {
-  font-size: 15px;
-  margin: 2px 0;
 }
 
 .email {
   color: white;
   margin-left: 600px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -263,31 +241,35 @@ h2 {
   transform: translateY(-80px);
 }
 
+@media only screen and (max-width: 768px) {
+  .ecommerce-site {
+    width: 90%; /* Make the container take up more of the screen width */
+    margin-right: auto; /* Center horizontally */
+    margin-top: 20px; /* Adjust margin to avoid too much top space */
+    margin-bottom: 20px; /* Adjust bottom margin */
+  }
+}
 @media only screen and (max-width: 450px) {
   section {
-    margin-left: 2px !important;
+    margin-left: 2px; /* Adjust section margin for smaller screens */
     overflow: hidden;
   }
   ul {
-    margin-left: 2px !important;
+    margin-left: 0;
   }
   .work {
+    height: -moz-fit-content;
     height: fit-content;
   }
   .work p {
-    font-size: 15px !important;
+    font-size: 15px; /* Smaller font size for paragraphs */
   }
   .projects {
-    margin-top: 200px;
+    margin-top: 200px; /* Adjust projects margin for smaller screens */
   }
   .ecommerce-site {
-    margin-left: 2px !important;
-    width: 90% !important;
+    width: 90%; /* Make the container take up more of the screen width */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
   }
-  .email {
-    margin-left: 130px !important;
-    font-size: 15px;
-  }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
