@@ -1,111 +1,134 @@
-// Variables
-$black: black;
-$white: white;
-$red: red;
-$font-family: "Josefin Sans", sans-serif;
-
-// Base styles
+// Define any reusable variables (optional, for easier updates)
+$primary-color: red;
+$secondary-color: black;
+$font-color-light: white;
+$font-color-dark: black;
+$font-size-small: 15px;
+$font-size-medium: 18px;
+$font-size-large: 22px;
+$font-size-xlarge: 23px;
+$border-radius: 10px;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// Body Styling
 body {
-  font-family: $font-family;
-  color: $black;
+  font-family: "Josefin Sans", sans-serif;
+  color: $font-color-dark;
 }
 
+// Top Section
 .top {
   padding-bottom: 20px;
   overflow: hidden;
-  background-color: $black;
-  color: $white;
+  background-color: $secondary-color;
+  color: $font-color-light;
 }
 
+// Navigation
 nav {
   position: fixed;
   top: 0;
   right: 0;
   padding-left: 20px;
-
+  
   ul {
     display: flex;
     list-style: none;
     margin-right: 100px;
-
+    
     li {
       a {
         text-decoration: none;
-        color: $white;
+        color: $font-color-light;
         padding-left: 88px;
-        font-size: 20px;
+        font-size: $font-size-medium;
       }
     }
   }
 }
 
+// Title Styling
 .title {
-  color: $red;
+  color: $primary-color;
   margin: 20% 0 5% 24%;
-  font-size: 23px;
-
+  font-size: $font-size-xlarge;
+  
   h4 {
-    font-size: 18px;
-    color: $white;
+    font-size: $font-size-medium;
+    color: $font-color-light;
   }
 }
 
+// Button Styling
 button {
   margin-top: 10px;
   height: 40px;
   width: 120px;
-  color: $white;
+  color: $font-color-light;
 }
 
-// Section styles
+// Section Layout
 section {
   margin-left: 20%;
 }
 
+// About Section
 .about {
   display: flex; /* Enable Flexbox layout */
-  flex-direction: column; /* Stack elements vertically by default */
-  align-items: flex-start; /* Align the content to the top */
-  color: white;
-  margin-top: 20%; /* Adjust this to control spacing at the top of the section */
-
+  flex-direction: row; /* Set to row by default */
+  align-items: flex-start; /* Align content to the top */
+  color: $font-color-light;
+  margin-top: 20%; /* Adjust the space at the top */
+  
   h2 {
-    font-size: 25px; /* Font size for the heading */
-    margin: 0; /* Remove default margin from the heading */
-    padding-bottom: 10px; /* Optional: Add a little space below the heading */
+    font-size: $font-size-large; /* Heading font size */
+    margin: 0; /* Remove default margin */
+    padding-bottom: 10px; /* Optional: Space below heading */
   }
 
-  .text {
-    display: flex; /* Enable flex on text section */
-    flex-direction: row; /* Arrange text and image horizontally */
-    align-items: center; /* Vertically center the text and image */
-    gap: 20px; /* Space between the text and the image */
-    width: 80%; /* Make the text section take up full width */
-    font-size: 18px;
-    overflow: hidden;
-    margin-top: 0;
-  }
+  .content {
+    display: flex;
+    flex-direction: row; /* Text left, image right */
+    margin-top: 20px;
+    
+    .text {
+      display: flex;
+      flex-direction: row; /* Arrange text and image horizontally */
+      align-items: center;
+      gap: 20px;
+      width: 80%; /* Text section takes up full width */
+      font-size: $font-size-medium;
+      overflow: hidden;
+      margin-top: 0;
+    }
 
-  .profilePic {
-    width: 250px; /* Adjust size as needed */
-    height: 250px; /* Maintain consistent height */
-    border-radius: 50%; /* Make the image circular */
-    object-fit: cover; /* Ensure the image covers the area properly */
+    .profilePic {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%; /* Make image circular */
+      object-fit: cover;
+    }
   }
 }
 
+// Skill List
 .skillList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
+  
   li {
     list-style: none;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
     img {
       width: 50px;
       height: 50px;
@@ -114,21 +137,13 @@ section {
   }
 }
 
-h2 {
-  margin-left: 5%;
-  margin-top: 10%;
-  text-decoration: underline;
-  color: $red;
-  font-size: 22px;
-}
-
-// Work section
+// Work Section
 .work {
-  height: 600px;
+  height: 400px;
   align-items: flex-start;
   padding: 20px;
-  color: $black;
-
+  color: $font-color-dark;
+  
   h2 {
     margin-top: 0;
   }
@@ -145,12 +160,12 @@ h2 {
   p {
     margin-top: 0;
     margin-left: 3px;
-    font-size: 15px;
+    font-size: $font-size-small;
     font-style: italic;
   }
 }
 
-// Projects section
+// Projects Section
 .projects {
   margin-top: 50px;
   padding: 40px;
@@ -158,6 +173,7 @@ h2 {
   width: fit-content;
 }
 
+// Ecommerce Site
 .ecommerce-site {
   display: flex;
   justify-content: center;
@@ -168,15 +184,15 @@ h2 {
   margin-left: 10%;
   margin-top: 10px;
   margin-bottom: 30px;
-  overflow: hidden; // Prevents content from overflowing the container
-
+  overflow: hidden;
+  
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 1px solid black;
-    border-radius: 10px;
-    transition: opacity 0.3s ease; // Smooth transition for image
+    border: 1px solid $font-color-dark;
+    border-radius: $border-radius;
+    transition: opacity 0.3s ease;
   }
 
   &::after {
@@ -186,26 +202,24 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(128, 128, 128, 0.8); // Grey background
-    z-index: 1; // Overlay is behind the text and buttons
+    background-color: rgba(128, 128, 128, 0.8);
+    z-index: 1;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
   }
 
-  &:hover {
-    &::after {
-      opacity: 1; // Show the grey overlay
-    }
+  &:hover::after {
+    opacity: 1;
+  }
 
-    h2,
-    p,
-    .button-container {
-      opacity: 1; // Show text and buttons
-    }
+  &:hover h2,
+  &:hover p,
+  &:hover .button-container {
+    opacity: 1;
+  }
 
-    .button-container button {
-      opacity: 1; // Show the buttons
-    }
+  &:hover .button-container button {
+    opacity: 1;
   }
 
   h2,
@@ -214,10 +228,10 @@ h2 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
-    opacity: 0; // Initially hidden
-    transition: opacity 0.3s ease-in-out; // Smooth transition for opacity
-    z-index: 2; // Ensure they stay above the overlay
+    color: $font-color-light;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
   }
 
   h2 {
@@ -230,38 +244,41 @@ h2 {
   }
 
   button:focus,
-a:focus {
-  outline: 3px solid #ff9900; /* Example: Orange outline for visibility */
-}
+  a:focus {
+    outline: 3px solid #ff9900;
+  }
 
   .button-container {
     top: 55%;
     display: flex;
     justify-content: center;
-    gap: 10px; // Space between the buttons
-  }
+    gap: 10px;
+    
+    button {
+      color: $font-color-light;
+      background-color: $primary-color;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
 
-  .button-container button {
-    color: white;
-    background-color: red;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    opacity: 0; // Initially hidden
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .button-container button:hover {
-    background-color: darkred; // Change button color on hover
+      &:hover {
+        background-color: darkred;
+      }
+    }
   }
 }
-.contact-form{
-  background-color: black;
+
+// Contact Form Section
+.contact-form {
+  background-color: $secondary-color;
   margin-left: 0;
 }
+
 .email {
-  color: $white;
+  color: $font-color-light;
   margin-left: 600px;
   width: fit-content;
 }
@@ -272,42 +289,68 @@ a:focus {
   transform: translateY(-80px);
 }
 
-// Responsive styles
-
+// Mobile Layout
 @media only screen and (max-width: 768px) {
   .ecommerce-site {
-    width: 90%; /* Make the container take up more of the screen width */
-    margin-right: auto; /* Center horizontally */
-    margin-top: 20px; /* Adjust margin to avoid too much top space */
-    margin-bottom: 20px; /* Adjust bottom margin */
+    width: 90%;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+.content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .text {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .profilePic {
+    margin-top: 20px;
+    max-width: 150px;
+    width: 100%;
+    border-radius: 50%;
   }
 }
-
-@media only screen and (max-width: 450px) {
-  section {
-    margin-left: 2px; /* Adjust section margin for smaller screens */
-    overflow: hidden;
-  }
-
   ul {
     margin-left: 0;
   }
 
   .work {
     height: fit-content;
+  }
 
-    p {
-      font-size: 15px; /* Smaller font size for paragraphs */
-    }
+  .work p {
+    font-size: $font-size-small;
   }
 
   .projects {
-    margin-top: 200px; /* Adjust projects margin for smaller screens */
+    margin-top: 20px;
   }
 
   .ecommerce-site {
-    width: 90%; /* Make the container take up more of the screen width */
-    margin-left: auto; /* Center horizontally */
-    margin-right: auto; /* Center horizontally */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  section {
+    margin-left: 2px;
+    overflow: hidden;
   }
 }

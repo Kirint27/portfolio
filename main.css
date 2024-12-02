@@ -2,12 +2,19 @@ body {
   font-family: "Josefin Sans", sans-serif;
   color: black;
 }
-
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .top {
   padding-bottom: 20px;
   overflow: hidden;
   background-color: black;
   color: white;
+
 }
 
 nav {
@@ -50,9 +57,6 @@ section {
 }
 
 .about {
-  display: flex; /* Enable Flexbox layout */
-  flex-direction: column; /* Stack elements vertically by default */
-  align-items: flex-start; /* Align the content to the top */
   color: white;
   margin-top: 20%; /* Adjust this to control spacing at the top of the section */
 }
@@ -61,20 +65,26 @@ section {
   margin: 0; /* Remove default margin from the heading */
   padding-bottom: 10px; /* Optional: Add a little space below the heading */
 }
+.about .content {
+  display: flex; /* Use flexbox for the content (text + image) */
+  flex-direction: row; /* Text on the left, image on the right */
+  margin-top: 20px; /* Add space between the heading and the content */
+}
 .about .text {
   display: flex; /* Enable flex on text section */
   flex-direction: row; /* Arrange text and image horizontally */
-  align-items: center; /* Vertically center the text and image */
   gap: 20px; /* Space between the text and the image */
-  width: 80%; /* Make the text section take up full width */
+  width: 50%; /* Make the text section take up full width */
   font-size: 18px;
   overflow: hidden;
-  margin-top: 0;
+  margin-left: 0px;
+
+  margin-top: 50px;
 }
 .about .profilePic {
   width: 250px; /* Adjust size as needed */
-  height: 250px; /* Maintain consistent height */
-  border-radius: 50%; /* Make the image circular */
+  margin-left: 100px;
+  border-radius: 80%; /* Make the image circular */
   -o-object-fit: cover;
      object-fit: cover; /* Ensure the image covers the area properly */
 }
@@ -254,22 +264,57 @@ h2 {
     margin-left: 2px; /* Adjust section margin for smaller screens */
     overflow: hidden;
   }
+}
+/* Mobile layout (for smaller screens) */
+
+@media (max-width: 768px) {
+  .about {
+    display: flex;
+    flex-direction: column; /* Stack title, text, and image vertically */
+    align-items: center; /* Center-align the content */
+    text-align: center; /* Center text for consistency */
+    padding: 20px; /* Add padding for spacing */
+  }
+.about 
+  .content {
+    flex-direction: column; /* Stack text and image vertically */
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+  .text {
+    margin-top: 10px; /* Space between title and text */
+    margin-bottom: 20px; /* Space between text and image */
+  }
+
+  .profilePic {
+    margin-top: 20px; /* Space between text and image */
+    max-width: 150px; /* Adjust the image size */
+    width: 100%; /* Make image responsive */
+    border-radius: 50%; /* Optional: make the image round */
+  }
+
+  /* Ensure no unwanted styles are causing issues */
   ul {
-    margin-left: 0;
+    margin-left: 0; /* Reset left margin for lists */
   }
+
   .work {
-    height: -moz-fit-content;
-    height: fit-content;
+    height: fit-content; /* Ensure correct height for work section */
   }
+
   .work p {
     font-size: 15px; /* Smaller font size for paragraphs */
   }
+
   .projects {
-    margin-top: 200px; /* Adjust projects margin for smaller screens */
+    margin-top: 20px; /* Adjust margin for projects section */
   }
+
   .ecommerce-site {
-    width: 90%; /* Make the container take up more of the screen width */
+    width: 90%; /* Adjust width of ecommerce site */
     margin-left: auto; /* Center horizontally */
     margin-right: auto; /* Center horizontally */
   }
-}/*# sourceMappingURL=main.css.map */
+}
