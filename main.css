@@ -58,7 +58,7 @@ section {
 
 .about {
   color: white;
-  margin-top: 20%; /* Adjust this to control spacing at the top of the section */
+  margin-top: 10%; /* Adjust this to control spacing at the top of the section */
 }
 .about h2 {
   font-size: 25px; /* Font size for the heading */
@@ -79,7 +79,7 @@ section {
   overflow: hidden;
   margin-left: 0px;
 
-  margin-top: 50px;
+  margin-top: 10px;
 }
 .about .profilePic {
   width: 250px; /* Adjust size as needed */
@@ -92,8 +92,7 @@ section {
 .skillList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-}
+margin-left: 5%;}
 .skillList li {
   list-style: none;
   padding: 20px;
@@ -108,8 +107,8 @@ section {
 }
 
 h2 {
-  margin-left: 5%;
   margin-top: 10%;
+
   text-decoration: underline;
   color: red;
   font-size: 22px;
@@ -127,6 +126,7 @@ h2 {
 .work ul {
   margin-top: 40px;
   list-style: none;
+  margin-left: 50px;
 }
 .work h3 {
   margin-bottom: 0;
@@ -146,6 +146,10 @@ h2 {
   width: -moz-fit-content;
   width: fit-content;
 }
+.hover-text {
+  margin-left: 30px;
+  margin-top: 20px;
+}
 
 .ecommerce-site {
   display: flex;
@@ -155,8 +159,7 @@ h2 {
   width: 600px;
   height: 400px;
   margin-left: 10%;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin-top: 20px;
   overflow: hidden;
 }
 
@@ -207,9 +210,11 @@ h2 {
   top: 10%;
 }
 .ecommerce-site p {
-  top: 30%;
-  width: 300px;
-  margin-left: 20px;
+    top: 30%;
+    width: 500px;
+    margin-top: 10px;
+left: 50%;
+  
 }
 .ecommerce-site button:focus,
 .ecommerce-site a:focus {
@@ -242,7 +247,8 @@ h2 {
 
 .email {
   color: white;
-  margin-left: 600px;
+  margin-top: 5px;
+  margin-left: 40%;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -250,9 +256,15 @@ h2 {
 .contact-links {
   display: flex;
   flex-direction: column;
-  transform: translateY(-80px);
-}
+color: white;
 
+}
+.contact-links a {
+color: white;
+margin-bottom: 20px;
+
+text-decoration: none;
+}
 @media only screen and (max-width: 768px) {
   .ecommerce-site {
     width: 90%; /* Make the container take up more of the screen width */
@@ -291,7 +303,6 @@ h2 {
   }
 
   .profilePic {
-    margin-top: 20px; /* Space between text and image */
     max-width: 150px; /* Adjust the image size */
     width: 100%; /* Make image responsive */
     border-radius: 50%; /* Optional: make the image round */
@@ -319,4 +330,4 @@ h2 {
     margin-left: auto; /* Center horizontally */
     margin-right: auto; /* Center horizontally */
   }
-}
+
