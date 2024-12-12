@@ -77,7 +77,8 @@ section {
   width: 50%; /* Make the text section take up full width */
   font-size: 18px;
   overflow: hidden;
-  margin-left: 0px;
+  
+  margin-left: 50px;
 
   margin-top: 10px;
 }
