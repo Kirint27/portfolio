@@ -1,13 +1,18 @@
-// Define any reusable variables (optional, for easier updates)
-$primary-color: red;
-$secondary-color: black;
-$font-color-light: white;
-$font-color-dark: black;
+// Variables
+$primary-color: #e74c3c;         // Refined red
+$secondary-color: #2c3e50;       // Deep dark blue-gray
+$top-background-color: #333333;  // New top section color
+$background-color: #ffffff;      // Clean white background
+$font-color-light: #ecf0f1;
+$font-color-dark: #2c3e50;
 $font-size-small: 15px;
 $font-size-medium: 18px;
 $font-size-large: 22px;
 $font-size-xlarge: 23px;
 $border-radius: 10px;
+$transition-speed: 0.3s;
+
+// Reset
 *,
 *::before,
 *::after {
@@ -15,38 +20,55 @@ $border-radius: 10px;
   padding: 0;
   box-sizing: border-box;
 }
-// Body Styling
+
+// Body
 body {
   font-family: "Josefin Sans", sans-serif;
   color: $font-color-dark;
+  background-color: $background-color;
+  line-height: 1.6;
+}
+
+.main-content {
+  flex: 1;
+}
+
+// Global h2 Styling
+h2 {
+  margin-top: 0;
+  margin-left: 40%;
+  color: $primary-color;
+  text-decoration: underline;
 }
 
 // Top Section
 .top {
   padding-bottom: 20px;
   overflow: hidden;
-  background-color: $secondary-color;
+  background-color: $top-background-color;
   color: $font-color-light;
-}
+  position: relative;
 
-// Navigation
-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding-left: 20px;
-  
-  ul {
+  nav {
     display: flex;
-    list-style: none;
-    margin-right: 100px;
-    
-    li {
-      a {
-        text-decoration: none;
-        color: $font-color-light;
-        padding-left: 88px;
-        font-size: $font-size-medium;
+    justify-content: flex-end;
+    padding: 10px 20px;
+
+    ul {
+      display: flex;
+      list-style: none;
+
+      li {
+        a {
+          text-decoration: none;
+          color: $font-color-light;
+          padding: 10px 20px;
+          font-size: $font-size-medium;
+          transition: color $transition-speed;
+          &:hover {
+            color: $primary-color;
+          }
+        }
       }
     }
   }
@@ -57,7 +79,6 @@ nav {
   color: $primary-color;
   margin: 20% 0 5% 24%;
   font-size: $font-size-xlarge;
-  
   h4 {
     font-size: $font-size-medium;
     color: $font-color-light;
@@ -65,43 +86,53 @@ nav {
 }
 
 // Button Styling
-button {
+.button {
   margin-top: 10px;
   height: 40px;
   width: 120px;
   color: $font-color-light;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color $transition-speed;
+  &:hover {
+    background-color: darkred;
+  }
 }
 
 // Section Layout
 section {
   margin-left: 10%;
+  margin-bottom: 40px;
 }
 
 // About Section
 .about {
-  display: flex; /* Enable Flexbox layout */
-  flex-direction: row; /* Set to row by default */
-  align-items: flex-start; /* Align content to the top */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   color: $font-color-light;
-  margin-top: 20%; /* Adjust the space at the top */
-  
+  margin-top: 20%;
+
   h2 {
-    font-size: $font-size-large; /* Heading font size */
-    margin: 0; /* Remove default margin */
-    padding-bottom: 10px; /* Optional: Space below heading */
+    font-size: $font-size-large;
+    margin: 0;
+    padding-bottom: 10px;
   }
 
   .content {
     display: flex;
-    flex-direction: row; /* Text left, image right */
+    flex-direction: row;
     margin-top: 20px;
-    
+
     .text {
       display: flex;
-      flex-direction: row; /* Arrange text and image horizontally */
+      flex-direction: row;
       align-items: center;
       gap: 20px;
-      width: 80%; /* Text section takes up full width */
+      width: 80%;
       font-size: $font-size-medium;
       overflow: hidden;
       margin-top: 0;
@@ -111,8 +142,9 @@ section {
     .profilePic {
       width: 250px;
       height: 250px;
-      border-radius: 50%; /* Make image circular */
+      border-radius: 50%;
       object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
   }
 }
@@ -122,18 +154,22 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
+
   li {
     list-style: none;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     img {
       width: 50px;
       height: 50px;
       margin-bottom: 5px;
+      transition: transform $transition-speed;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
@@ -144,10 +180,6 @@ section {
   align-items: flex-start;
   padding: 20px;
   color: $font-color-dark;
-  
-  h2 {
-    margin-top: 0;
-  }
 
   ul {
     margin-top: 40px;
@@ -187,6 +219,7 @@ section {
   margin-top: 10px;
   margin-bottom: 30px;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
   img {
     width: 100%;
@@ -194,7 +227,7 @@ section {
     object-fit: cover;
     border: 1px solid $font-color-dark;
     border-radius: $border-radius;
-    transition: opacity 0.3s ease;
+    transition: opacity $transition-speed;
   }
 
   &::after {
@@ -210,18 +243,19 @@ section {
     transition: opacity 0.3s ease-in-out;
   }
 
-  &:hover::after {
-    opacity: 1;
-  }
 
-  &:hover h2,
-  &:hover p,
-  &:hover .button-container {
-    opacity: 1;
-  }
-
-  &:hover .button-container button {
-    opacity: 1;
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+    h2,
+    p,
+    .button-container {
+      opacity: 1;
+    }
+    .button-container button {
+      opacity: 1;
+    }
   }
 
   h2,
@@ -230,9 +264,8 @@ section {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    color: $font-color-light;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity $transition-speed ease-in-out;
     z-index: 2;
   }
 
@@ -244,12 +277,8 @@ section {
     top: 30%;
     width: 500px;
     margin-top: 10px;
-left: 50%;
-  }
-
-  button:focus,
-  a:focus {
-    outline: 3px solid #ff9900;
+    left: 50%;
+    text-align: center;
   }
 
   .button-container {
@@ -257,7 +286,7 @@ left: 50%;
     display: flex;
     justify-content: center;
     gap: 10px;
-    
+
     button {
       color: $font-color-light;
       background-color: $primary-color;
@@ -266,8 +295,7 @@ left: 50%;
       padding: 10px 20px;
       cursor: pointer;
       opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-
+      transition: opacity $transition-speed;
       &:hover {
         background-color: darkred;
       }
@@ -277,20 +305,34 @@ left: 50%;
 
 // Contact Form Section
 .contact-form {
-  background-color: $secondary-color;
-  margin-left: 0;
-}
-
-.email {
+  background-color: $top-background-color;
   color: $font-color-light;
-  margin-left: 30px;
-  width: fit-content;
+  height: 100px;
+  padding: 2px;
+  margin: 0;
+  position: relative;
+
+  .contact-links {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    margin: 0;
+    padding: 5px;
+
+    h4 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .email {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  transform: translateY(-80px);
+a {
+  color: $font-color-light;
 }
 
 // Mobile Layout
@@ -303,42 +345,39 @@ left: 50%;
   }
 
   .about {
-    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 20px;
-  }
 
-.content {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
+    .content {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
 
-  .text {
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
+      .text {
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
 
-  .profilePic {
-    margin-top: 20px;
-    max-width: 150px;
-    width: 100%;
-    border-radius: 50%;
-  }
-}
-  ul {
-    margin-left: 0;
+      .profilePic {
+        margin-top: 20px;
+        max-width: 150px;
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
   }
 
   .work {
+    ul {
+      margin-left: 0;
+    }
     height: fit-content;
-  }
-
-  .work p {
-    font-size: $font-size-small;
+    p {
+      font-size: $font-size-small;
+    }
   }
 
   .projects {
