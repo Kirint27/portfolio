@@ -319,33 +319,52 @@ p {
 
 /* Contact Form */
 .contact-form {
-  background-color: var(--top-background-color);
+  background-color: #1a1a1a; /* or #121212 */
   color: var(--font-color-light);
-  height: 100px;
-  padding: 2px;
-  position: relative;
+  padding: 5px 20px;
+  text-align: center;
+  height: 220px;
+  font-size: 15px;
+
 }
 
-.contact-form .contact-links {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  padding: 5px;
-}
-
-.contact-form .contact-links h4 {
-  margin: 0;
-  padding: 0;
+.contact-form h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
 }
 
 .contact-form .email {
-  margin: 0 auto;
-  text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-a {
-  color: var(--font-color-light);
+.contact-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
+
+.contact-links h4 {
+  width: 100%;
+
+  font-size: 20px;
+}
+
+.contact-links li a {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid var(--font-color-light);
+  border-radius: 8px;
+  color: var(--font-color-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
 
 /* Mobile Layout */
 @media only screen and (max-width: 768px) {
