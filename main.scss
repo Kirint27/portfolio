@@ -1,18 +1,20 @@
-// Variables
-$primary-color: #e74c3c;         // Refined red
-$secondary-color: #2c3e50;       // Deep dark blue-gray
-$top-background-color: #333333;  // New top section color
-$background-color: #ffffff;      // Clean white background
-$font-color-light: #ecf0f1;
-$font-color-dark: #2c3e50;
-$font-size-small: 15px;
-$font-size-medium: 18px;
-$font-size-large: 22px;
-$font-size-xlarge: 23px;
-$border-radius: 10px;
-$transition-speed: 0.3s;
+/* Variables */
+:root {
+  --primary-color: #e74c3c;
+  --secondary-color: #2c3e50;
+  --top-background-color: #242424;
+  --background-color: #ffffff;
+  --font-color-light: #ecf0f1;
+  --font-color-dark: #2c3e50;
+  --font-size-small: 15px;
+  --font-size-medium: 18px;
+  --font-size-large: 22px;
+  --font-size-xlarge: 23px;
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+}
 
-// Reset
+/* Reset */
 *,
 *::before,
 *::after {
@@ -21,11 +23,11 @@ $transition-speed: 0.3s;
   box-sizing: border-box;
 }
 
-// Body
+/* Body */
 body {
   font-family: "Josefin Sans", sans-serif;
-  color: $font-color-dark;
-  background-color: $background-color;
+  color: var(--font-color-dark);
+  background-color: var(--background-color);
   line-height: 1.6;
 }
 
@@ -33,21 +35,22 @@ body {
   flex: 1;
 }
 
-// Global h2 Styling
 h2 {
   margin-top: 0;
-  margin-left: 40%;
-  color: $primary-color;
+  margin-left: 5%;
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
-// Top Section
+/* Top Section */
 .top {
+  height: 800px;
   padding-bottom: 20px;
   overflow: hidden;
-  background-color: $top-background-color;
-  color: $font-color-light;
+  background-color: var(--top-background-color);
+  color: var(--font-color-light);
   position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
   nav {
     display: flex;
@@ -61,12 +64,13 @@ h2 {
       li {
         a {
           text-decoration: none;
-          color: $font-color-light;
+          color: var(--font-color-light);
           padding: 10px 20px;
-          font-size: $font-size-medium;
-          transition: color $transition-speed;
+          font-size: var(--font-size-medium);
+          transition: color var(--transition-speed);
+
           &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
           }
         }
       }
@@ -74,82 +78,83 @@ h2 {
   }
 }
 
-// Title Styling
+/* Title */
 .title {
-  color: $primary-color;
-  margin: 20% 0 5% 24%;
-  font-size: $font-size-xlarge;
+  color: var(--primary-color);
+  margin: 10% 0 5% 24%;
+  font-size: var(--font-size-xlarge);
+
   h4 {
-    font-size: $font-size-medium;
-    color: $font-color-light;
+    font-size: var(--font-size-medium);
+    color: var(--font-color-light);
   }
 }
 
-// Button Styling
+/* Button */
 .button {
   margin-top: 10px;
   height: 40px;
   width: 120px;
-  color: $font-color-light;
-  background-color: $primary-color;
+  color: var(--font-color-light);
+  background-color: var(--primary-color);
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  transition: background-color $transition-speed;
+  transition: background-color var(--transition-speed);
+
   &:hover {
     background-color: darkred;
   }
 }
 
-// Section Layout
-section {
-  margin-left: 10%;
-  margin-bottom: 40px;
+/* Profile Picture */
+.profilePic {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-left: 25%;
 }
 
-// About Section
+/* Section Layout */
+section {
+  padding: 40px 20px;
+  margin: 0 auto;
+  max-width: 1800px;
+}
+
+/* About Section */
 .about {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
-  color: $font-color-light;
-  margin-top: 20%;
+  color: var(--font-color-dark);
+  margin-bottom: 50px;
 
   h2 {
-    font-size: $font-size-large;
-    margin: 0;
+    font-size: var(--font-size-large);
+    margin-left: 5%;
     padding-bottom: 10px;
   }
 
   .content {
     display: flex;
-    flex-direction: row;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 80px;
 
     .text {
       display: flex;
       flex-direction: row;
-      align-items: center;
       gap: 20px;
-      width: 80%;
-      font-size: $font-size-medium;
-      overflow: hidden;
-      margin-top: 0;
-      margin-left: 50px;
-    }
-
-    .profilePic {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      font-size: var(--font-size-medium);
+      margin: 0;
     }
   }
 }
 
-// Skill List
+/* Skill List */
 .skillList {
   display: flex;
   flex-wrap: wrap;
@@ -166,7 +171,8 @@ section {
       width: 50px;
       height: 50px;
       margin-bottom: 5px;
-      transition: transform $transition-speed;
+      transition: transform var(--transition-speed);
+
       &:hover {
         transform: scale(1.1);
       }
@@ -174,17 +180,14 @@ section {
   }
 }
 
-// Work Section
+/* Work Section */
 .work {
-  height: 400px;
-  align-items: flex-start;
   padding: 20px;
-  color: $font-color-dark;
+  color: var(--font-color-dark);
 
   ul {
-    margin-top: 40px;
+    margin: 40px 20px 0 50px;
     list-style: none;
-    margin-left: 50px;
   }
 
   h3 {
@@ -192,32 +195,37 @@ section {
   }
 
   p {
-    margin-top: 0;
-    margin-left: 3px;
-    font-size: $font-size-small;
+    margin: 0 0 0 3px;
+    font-size: var(--font-size-small);
     font-style: italic;
   }
 }
 
-// Projects Section
+/* Projects Section */
 .projects {
   margin-top: 50px;
   padding: 40px;
-  height: fit-content;
-  width: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-// Ecommerce Site
+/* Global paragraph styling */
+p {
+  margin-left: 30px;
+}
+
+/* Ecommerce Site */
 .ecommerce-site {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 600px;
+  width: 90%;
+  max-width: 700px;
   height: 400px;
-  margin-left: 10%;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin: 0 30px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
@@ -225,9 +233,9 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 1px solid $font-color-dark;
-    border-radius: $border-radius;
-    transition: opacity $transition-speed;
+    border: 1px solid var(--font-color-dark);
+    border-radius: var(--border-radius);
+    transition: opacity var(--transition-speed);
   }
 
   &::after {
@@ -243,16 +251,15 @@ section {
     transition: opacity 0.3s ease-in-out;
   }
 
+  &:hover::after {
+    opacity: 1;
+  }
 
   &:hover {
-    &::after {
+    h2, p, .button-container {
       opacity: 1;
     }
-    h2,
-    p,
-    .button-container {
-      opacity: 1;
-    }
+
     .button-container button {
       opacity: 1;
     }
@@ -264,8 +271,9 @@ section {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    color: white;
     opacity: 0;
-    transition: opacity $transition-speed ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     z-index: 2;
   }
 
@@ -278,7 +286,6 @@ section {
     width: 500px;
     margin-top: 10px;
     left: 50%;
-    text-align: center;
   }
 
   .button-container {
@@ -288,14 +295,15 @@ section {
     gap: 10px;
 
     button {
-      color: $font-color-light;
-      background-color: $primary-color;
+      color: var(--font-color-light);
+      background-color: var(--primary-color);
       border: none;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       padding: 10px 20px;
       cursor: pointer;
       opacity: 0;
-      transition: opacity $transition-speed;
+      transition: opacity var(--transition-speed);
+
       &:hover {
         background-color: darkred;
       }
@@ -303,20 +311,18 @@ section {
   }
 }
 
-// Contact Form Section
+/* Contact Form */
 .contact-form {
-  background-color: $top-background-color;
-  color: $font-color-light;
+  background-color: var(--top-background-color);
+  color: var(--font-color-light);
   height: 100px;
   padding: 2px;
-  margin: 0;
   position: relative;
 
   .contact-links {
     position: absolute;
     top: 10px;
     left: 0;
-    margin: 0;
     padding: 5px;
 
     h4 {
@@ -331,69 +337,87 @@ section {
   }
 }
 
+/* Links */
 a {
-  color: $font-color-light;
+  color: var(--font-color-light);
 }
 
-// Mobile Layout
+/* Media Queries */
+
+/* Mobile Layout */
 @media only screen and (max-width: 768px) {
+  .projects {
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
   .ecommerce-site {
-    width: 90%;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+
+    p {
+      width: 90%;
+      font-size: var(--font-size-small);
+    }
+
+    .button-container {
+      flex-direction: column;
+      gap: 5px;
+
+      button {
+        padding: 8px 16px;
+        font-size: var(--font-size-small);
+      }
+    }
   }
 
   .about {
-    flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 20px;
 
     .content {
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
       margin-top: 20px;
 
       .text {
-        margin-top: 10px;
-        margin-bottom: 20px;
-      }
-
-      .profilePic {
-        margin-top: 20px;
-        max-width: 150px;
-        width: 100%;
-        border-radius: 50%;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0 20px;
       }
     }
+  }
+
+  .profilePic {
+    margin-top: 20px;
+    max-width: 150px;
+    width: 100%;
+    border-radius: 50%;
   }
 
   .work {
+    height: fit-content;
+
     ul {
       margin-left: 0;
     }
-    height: fit-content;
+
     p {
-      font-size: $font-size-small;
+      font-size: var(--font-size-small);
     }
   }
+}
 
+/* Desktop Large Screens */
+@media only screen and (min-width: 1200px) {
   .projects {
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 40px;
   }
 
   .ecommerce-site {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  section {
-    margin-left: 2px;
-    overflow: hidden;
+    height: 400px;
   }
 }
